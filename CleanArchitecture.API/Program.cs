@@ -1,4 +1,3 @@
-using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IDatabaseService, DatabaseService>();
+builder.Services.AddPersistenceServices(builder.Configuration);
 
 var app = builder.Build();
 
